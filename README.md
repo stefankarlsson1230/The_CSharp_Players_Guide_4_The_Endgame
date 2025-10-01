@@ -67,7 +67,22 @@ point, the two skeletons should do nothing repeatedly. The game might look like 
 		- Optional: At this point, the game will run automatically. Consider adding a Thread.Sleep(500);
 to slow the game down enough to allow the user to see what is happening over time.
 
-
+- [X] Project 2 - Core Game: The True Programmer
+	- Our skeletons need a hero to fight. We’ll do that by adding in the focal character of the game, the player
+character, which represents the player directly, called the True Programmer by in-game role. The player
+will choose the True Programmer’s name.
+	- Objectives:
+		- The game must represent a True Programmer character with a name supplied by the user.
+		- Before getting started, ask the user for a name for this character.
+		- The game should run a battle with the True Programmer in the hero party vs. a skeleton in the
+monster party. The game might look like the following this challenge:
+			```
+			It is TOG's turn...
+			TOG did NOTHING.
+			It is SKELETON's turn...
+			SKELETON did NOTHING.
+			...
+			```
 
 
 Chapter 53: Into Lands Uncharted
