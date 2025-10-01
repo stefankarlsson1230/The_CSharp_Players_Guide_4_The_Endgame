@@ -1,34 +1,68 @@
-﻿//	This challenge is deceptively complex: it will require building out enough of the game’s foundation to get two characters
-//	taking turns in a loop. (Sure, they’ll be doing nothing, but that’s still a big step forward!)
+﻿List<Character> heroes = new List<Character> { new Skeleton() };
+List<Character> monsters = new List<Character> { new Skeleton() };
 
-//	- The game needs to be able to represent characters with a name and able to take a turn. (We’ll change this a little in
-//		the challenge Characters, Actions, and Players.)
+Battle battle = new Battle(heroes, monsters);
 
-//	- The game should be able to have skeleton characters with the name SKELETON.
-
-//	- The game should be able to represent a party with a collection of characters.
-
-//	- The game should be able to run a battle composed of two parties—heroes and monsters. A battle needs to run a series of
-//		rounds where each character in each party (heroes first) can take a turn.
-
-//	- Before a character takes their turn, the game should report to the user whose turn it is. For example, “It is SKELETON’s turn….”
-
-//	- The only action the game needs to support at this point is the action of doing nothing (skipping a turn). This action is done
-//		by displaying text about doing nothing, resting, or skipping a turn in the console window. For example, “SKELETON did NOTHING.”
-
-//	- The game must run a battle with a single skeleton in both the hero and the monster party. At this point, the two skeletons should
-//		do nothing repeatedly. The game might look like the following:
-
-//			It is SKELETON's turn...
-//          SKELETON did NOTHING.
-		
-//			It is SKELETON's turn...
-//			SKELETON did NOTHING.
-//			...
-
-//	- Optional: Put a blank line between each character’s turn to differentiate one turn from another.
-
-//	- Optional: At this point, the game will run automatically.Consider adding a Thread.Sleep(500); to slow the game down enough to
-//		allow the user to see what is happening over time.
+battle.Run();
 
 
+
+
+// Classes
+internal abstract class Character
+{
+	public abstract string Name { get; }
+
+    public string TakeTurn() => $"{Name} did NOTHING.";
+
+    public override string ToString() => Name;
+}
+
+
+internal class Skeleton : Character
+{
+    public override string Name { get; } = "SKELETON"; 
+
+}
+
+
+internal class Battle
+{
+    // Properties
+    public List<Character> Heroes { get; }
+    public List<Character> Monsters { get; }
+
+
+    // Constructor
+    public Battle(List<Character> heroes, List<Character> monsters)
+    {
+        Heroes = heroes;
+        Monsters = monsters;
+    }
+
+    // Methods
+    public void Run()
+    {
+        while (true)
+        {
+            // Heroes turn
+            foreach (Character hero in Heroes)
+            {
+                Console.WriteLine($"It is {hero}'s turn...");
+                Console.WriteLine(hero.TakeTurn());
+                Console.WriteLine(); 
+                Thread.Sleep(500);      // REMOVE LATER!!!
+            }
+
+            // Monsters turn
+            foreach (Character monster in Monsters)
+            {
+                Console.WriteLine($"It is {monster}'s turn...");
+                Console.WriteLine(monster.TakeTurn());
+                Console.WriteLine();
+                Thread.Sleep(500);      // REMOVE LATER!!!
+            }
+        }
+    }
+
+}

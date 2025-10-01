@@ -37,7 +37,7 @@ player via the console window. We will be able to run the game with the computer
 controlling both parties, humans controlling both parties, and the human in charge of the
 heroes against the computer in charge of the monsters (the standard setup).
 
-- [ ] Project 1 - Core Game: Building Character
+- [x] Project 1 - Core Game: Building Character
 	- This challenge is deceptively complex: it will require building out enough of the game’s foundation to
 get two characters taking turns in a loop. (Sure, they’ll be doing nothing, but that’s still a big step
 forward!)
