@@ -6,8 +6,6 @@ Battle battle = new Battle(heroes, monsters);
 battle.Run();
 
 
-
-
 // Classes
 internal abstract class Character
 {
